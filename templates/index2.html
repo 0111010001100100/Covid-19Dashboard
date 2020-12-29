@@ -1,0 +1,81 @@
+{% extends "template.html" %}
+{% block title %} Test {% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+{% block body %}
+<div class="hero-image">
+	<div class="hero-text">
+		<h1>Daily COVID-19 Update</h1>
+		<p>We're All Going to Die</p>
+		<button>Data Repository</button>
+	</div>
+</div> 
+<!-- 	<h1>Global Cases: {{ total_cases }}</h1>
+	<h1>Global Active Cases: {{ total_active }}</h1>
+	<h1>Global Deaths: {{ total_deaths }}</h1> -->
+	<style type="text/css">
+		body, html {
+	    height: 100%;
+	    background-color: grey;
+	}
+
+	/* The hero image */
+	.hero-image {
+	  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("static/covid.jpg");
+
+	  /* Set a specific height */
+	  height: 25%;
+
+	  /* Position and center the image to scale nicely on all screens */
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	  position: relative;
+	}
+
+	/* Place text in the middle of the image */
+	.hero-text {
+	  text-align: center;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  color: white;
+	}  
+	#boxes {
+		padding-top: 10px;
+	}
+    #leftbox { 
+        float:left;  
+        width:25%; 
+        height:500px;
+        overflow: auto; 
+    } 
+    #middlebox{ 
+        float:left;  
+        width:50%; 
+        height:500px; 
+    } 
+    #rightbox{ 
+        float:right;  
+        width:25%; 
+        height:280px; 
+    } 
+    h1{ 
+        text-align:center; 
+    } 
+    </style>
+
+	<div id = "boxes"> 
+        <div id = "leftbox"> 
+            {% include "cl.html" %} 
+        </div>  
+          
+        <div id = "middlebox"> 
+            {% include "map.html" %}
+        </div> 
+          
+        <div id = "rightbox"> 
+            <h2>{% include "global_cases_plot.html" %}</h2>  
+        </div> 
+    </div> 
+{% endblock %}
